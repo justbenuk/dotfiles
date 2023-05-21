@@ -1,0 +1,7 @@
+#set default terminal to use alacritty
+  TERM: alacritty
+
+#set the terminal transparency
+  window:
+    opacity: 0.9
+
