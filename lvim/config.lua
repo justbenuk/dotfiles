@@ -4,3 +4,8 @@
 
 -- Set the window to transparent to match alactritty
 lvim.transparent_window = true
+
+--my color scheme
+ lvim.plugins = {
+	"Mofiqul/dracula.nvim",
+}
