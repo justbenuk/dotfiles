@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+
+#installing Kitty config
+# Remove any files 
+rm -rf $HOME/.config/kitty
+#add the new config
+ln -s $DOTFILES/kitty $HOME/.config/kitty
+
+#Tmux config
+#remove any previous config
+rm -rf $HOME/.tmux.conf
+#add new config
+ln -s $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+#tmux scripts
+mkdir -p $HOME/.local/bin
+rm -rf $HOME/.local/bin/t
+ls -s $DOTFILES/scripts/t $HOME/.local/bin/t
+
+#nvim lua config
+rm -rf $HOME/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config/nvim
+
+echo "Install ripgrep"
+sudo pacman -S ripgrep
+
+echo "Installed"
+
+echo "Finished"
