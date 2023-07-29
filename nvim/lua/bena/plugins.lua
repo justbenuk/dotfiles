@@ -298,6 +298,14 @@ use({
   end,
 })
 
+-- added colorizer
+use('norcalli/nvim-colorizer.lua')
+require'colorizer'.setup{
+    '*'; -- Highlight all files, but customize some others.
+  css = { rgb_fn = true; }; -- Enable parsing rgb(...) functions in css.
+  html = { names = false; }
+}
+
 if packer_bootstrap then
 require('packer').sync()
 end
