@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+#==========================================
+# install required applications
+# ========================================
+echo "Install required files after install"
+sudo pacman -S kitty nodejs npm neovim ripgrep
+echo "Completed Install"
+
+#==========================================
+# Set up Kitty config files
+#  ========================================
+echo "Setup and Move Kitty Config"
+rm -rf $HOME/.config/kitty
+#add the new config
+ln -s $DOTFILES/kitty $HOME/.config/kitty
+
+#  ========================================
+# Set up nvim and create symlink
+#  ========================================
+echo "Setting Up nvim"
+rm -rf $HOME/.config/nvim
+ln -s $DOTFILES/nvim $HOME/.config/nvim
+rm -rf $HOME/.config/phpactor
+ln -s $DOTFILES/phpactor $HOME/.config/phpactor
+
+echo "Finished"
