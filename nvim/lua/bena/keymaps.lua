@@ -17,6 +17,10 @@ vim.keymap.set('v', 'y', 'myy`y')
 -- Disable annoying command line typo.
 vim.keymap.set('n', 'q:', ':q')
 
+-- Save and Close Files
+vim.keymap.set('n', '<Leader>w', ':w<CR>')
+vim.keymap.set('n', '<Leader>c', ':q<CR>')
+
 -- Paste replace visual selection without copying it.
 vim.keymap.set('v', 'p', '"_dP')
 
