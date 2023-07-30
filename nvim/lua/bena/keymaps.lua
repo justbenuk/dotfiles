@@ -21,8 +21,10 @@ vim.keymap.set('n', 'q:', ':q')
 vim.keymap.set('n', '<Leader>w', ':w<CR>')
 vim.keymap.set('n', '<Leader>c', ':q<CR>')
 
---remove buffers from list
-vim,keymap.set('n', '<Leader>q', ':bd<CR>')
+--navigate and remove buffers from list
+vim.keymap.set('n', '<Leader>q', ':bd<CR>')
+vim.keymap.set('n', '<Leader>p', ':bprev<cr>')
+vim.keymap.set('n', '<Leader>o', ':bnext<cr>')
 
 -- Paste replace visual selection without copying it.
 vim.keymap.set('v', 'p', '"_dP')
