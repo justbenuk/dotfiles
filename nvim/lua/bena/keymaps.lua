@@ -21,6 +21,9 @@ vim.keymap.set('n', 'q:', ':q')
 vim.keymap.set('n', '<Leader>w', ':w<CR>')
 vim.keymap.set('n', '<Leader>c', ':q<CR>')
 
+--remove buffers from list
+vim,keymap.set('n', '<Leader>q', ':bd<CR>')
+
 -- Paste replace visual selection without copying it.
 vim.keymap.set('v', 'p', '"_dP')
 
