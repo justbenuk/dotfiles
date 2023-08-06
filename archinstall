@@ -22,7 +22,7 @@ ln -s $DOTFILES/kitty $HOME/.config/kitty
 echo "Setting Up Lunar Vim"
 rm -r $HOME/.config/lvim 
 #add the new config
-ln -s $DOTFILES/lvim $HOME/.config/nvim
+ln -s $DOTFILES/lvim $HOME/.config/lvim
 echo "set NPM globals"
 mkdir ~/.npm-global
 echo "Npm should be installed"
