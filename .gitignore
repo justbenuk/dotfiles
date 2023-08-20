@@ -1,0 +1,2 @@
+#ignore the composer file as this will be install on run
+composer-setup.php
