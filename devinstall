@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+#install apache
+sudo pacman -S php php-apache mariadb 
+
+#iniatialise mariadb
+sudo mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+
+#enable and start mysqwl
+sudo systemctl start mysqld
+sudo systemctl enable mysqld
+sudo mysql_secure_installation
+
+#install composer
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+sudo php composer-setup.php --install-dir=/bin --filename=composer
+
+#install laravel
+composer global require laravel/installer
+echo 'export PATH="$PATH:$HOME/.config/composer/vendor/bin"' >> ~/.bashrc
+
+
+
