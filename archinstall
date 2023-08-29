@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
+
 #==========================================
 # install required applications
 # ========================================
@@ -19,19 +20,9 @@ ln -s $DOTFILES/kitty $HOME/.config/kitty
 #  ========================================
 # Set up nvim and create symlink
 #  ========================================
-echo "Setting Up Lunar Vim"
+echo "Setting Up Lunar Vim config files"
 rm -r $HOME/.config/lvim 
 #add the new config
 ln -s $DOTFILES/lvim $HOME/.config/lvim
-echo "set NPM globals"
-mkdir ~/.npm-global
-echo "Npm should be installed"
-npm config set prefix '~/.npm-global'
-npm install -g jshint
-
-echo "now run Luner Vim Install"
-
-LV_BRANCH='release-1.3/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.3/neovim-0.9/utils/installer/install.sh)
-
 
 echo "Finished"
