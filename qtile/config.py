@@ -27,7 +27,6 @@
 from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
-from libqtile.utils import guess_terminal
 
 mod = "mod4"
 myTerm = 'kitty'
@@ -116,10 +115,22 @@ layouts = [
     # layout.VerticalTile(),
     # layout.Zoomy(),
 ]
+Colors  = [
+    ["#282a36", "#282a36"], # bg
+    ["#f8f8f2", "#f8f8f2"], # fg
+    ["#000000", "#000000"], # Red
+    ["#ff5555", "#ff5555"], # Green
+    ["#50fa7b", "#50fa7b"], # Yellow
+    ["#f1fa8c", "#f1fa8c"], # Green
+    ["#bd93f9", "#bd93f9"], # purple
+    ["#ff79c6", "#ff79c6"], # lilac
+    ["#9aedfe", "#9aedfe"]  # light blue
+    ]
 
 widget_defaults = dict(
-    font="sans",
+    font="Ubuntu Bold",
     fontsize=12,
+    foreground=Colors[0],
     padding=10,
 )
 extension_defaults = widget_defaults.copy()
@@ -131,47 +142,52 @@ screens = [
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
-                widget.GroupBox(),
+                widget.GroupBox(
+                    highlight_method='line',
+                    highlight_color='#00000000',
+                    ),
                 widget.Prompt(),
                 widget.Spacer(),
-                widget.WindowName(),
+                widget.WindowName(
+                    foreground='#fff',
+                    ),
                 widget.Spacer(),
-                widget.Sep(),
                 widget.TextBox(
                     text='CPU',
+                    background=Colors[3],
                     ),
                 widget.CPU(
                     format='{load_percent}%',
+                    background=Colors[3],
                     ),
-                widget.Sep(),
                 widget.TextBox(
-                    text='\uf50a'
+                    text='\uf50a',
+                    background=Colors[4],
                     ),
                 widget.Memory(
                     measure_mem='G',
+                    background=Colors[4],
                     ),
-                widget.Sep(),
                 widget.Battery(
-                    format='{percent:2.0%}'
+                    format='{percent:2.0%}',
+                    background=Colors[5],
                     ),
-                widget.Sep(),
                 widget.TextBox(
-                    text='\uf56a'
+                    text='\uf56a',
+                    background=Colors[6],
                     ),
-                widget.Volume(),
-                widget.Sep(),
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
-                # widget.StatusNotifier(),
+                widget.Volume(
+                    background=Colors[6],
+                    ),
                 widget.Systray(),
-                widget.Clock(format="%a %I:%M %p"),
-                widget.Sep(),
-                widget.QuickExit(),
+                widget.Clock(
+                    format="%a %I:%M %p",
+                    background=Colors[7]
+                    ),
+                widget.QuickExit(
+                    background=Colors[8],
+                    default_text='X'
+                    ),
             ],
             24,
             background='#00000000',
