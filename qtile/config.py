@@ -30,8 +30,7 @@ from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
 mod = "mod4"
-terminal = guess_terminal()
-
+myTerm = 'kitty'
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
@@ -64,13 +63,16 @@ keys = [
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
     ),
-    Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn(myTerm), desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+
+    # Launch Applications
     Key([mod], "r", lazy.spawn('dmenu_run'), desc="Spawn a command using a prompt widget"),
+    Key([mod], "b", lazy.spawn('google-chrome-stable'), desc="Browser"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -118,36 +120,63 @@ layouts = [
 widget_defaults = dict(
     font="sans",
     fontsize=12,
-    padding=3,
+    padding=10,
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper='~/dotfiles/backgrounds/pxfuel.jpg',
-        wallpaper_mode='stretch', 
+        wallpaper='~/dotfiles/backgrounds/Wallpaper-Minimalism-Hong-Kong-Vector-The-Cit12.jpg',
+        wallpaper_mode='stretch',
         top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
                 widget.Prompt(),
+                widget.Spacer(),
                 widget.WindowName(),
+                widget.Spacer(),
+                widget.Sep(),
+                widget.TextBox(
+                    text='CPU',
+                    ),
+                widget.CPU(
+                    format='{load_percent}%',
+                    ),
+                widget.Sep(),
+                widget.TextBox(
+                    text='\uf50a'
+                    ),
+                widget.Memory(
+                    measure_mem='G',
+                    ),
+                widget.Sep(),
+                widget.Battery(
+                    format='{percent:2.0%}'
+                    ),
+                widget.Sep(),
+                widget.TextBox(
+                    text='\uf56a'
+                    ),
+                widget.Volume(),
+                widget.Sep(),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("default config", name="default"),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%a %I:%M %p"),
+                widget.Sep(),
                 widget.QuickExit(),
             ],
             24,
-            # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
+            background='#00000000',
+            opacity=1,
+            # border_width=[6, 2, 6, 2],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
     ),

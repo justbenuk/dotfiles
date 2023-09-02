@@ -9,6 +9,14 @@ echo "Install required files after install"
 sudo pacman -Syyu kitty nodejs npm neovim lazygit make qtile dmenu
 echo "Completed Install"
 
+
+#==========================================
+# install required qtile extensionsmand pip files
+# ========================================
+echo "Install required files for qtile"
+pip install psutil --break-system-packages
+echo "Completed Install"
+
 #==========================================
 # Set up Kitty config files
 #  ========================================
