@@ -72,6 +72,7 @@ keys = [
     # Launch Applications
     Key([mod], "r", lazy.spawn('dmenu_run'), desc="Spawn a command using a prompt widget"),
     Key([mod], "b", lazy.spawn('google-chrome-stable'), desc="Browser"),
+    Key([mod], "o", lazy.spawn('libreoffice'), desc="Open Office"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -169,7 +170,7 @@ screens = [
                     background=Colors[4],
                     ),
                 widget.Battery(
-                    format='{percent:2.0%}',
+                    format='{char} {percent:2.0%}',
                     background=Colors[5],
                     ),
                 widget.TextBox(

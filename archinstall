@@ -6,7 +6,7 @@ DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 # install required applications
 # ========================================
 echo "Install required files after install"
-sudo pacman -Syyu kitty nodejs npm neovim lazygit make qtile dmenu
+sudo pacman -Syyu kitty nodejs npm neovim lazygit make qtile dmenu picom
 echo "Completed Install"
 
 
@@ -40,4 +40,6 @@ echo "Setting Up qtile config files"
 rm -r $HOME/.config/qtile 
 #add the new config
 ln -s $DOTFILES/qtile $HOME/.config/qtile
+#move the auto start folder
+cp $DOTFILES/qtile/autostart.sh /etc/profile.d/
 echo "Finished"
