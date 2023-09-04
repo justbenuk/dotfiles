@@ -70,7 +70,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # Launch Applications
-    Key([mod], "r", lazy.spawn('dmenu_run'), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn('rofi -show'), desc="Spawn a command using a prompt widget"),
     Key([mod], "b", lazy.spawn('google-chrome-stable'), desc="Browser"),
     Key([mod], "o", lazy.spawn('libreoffice'), desc="Open Office"),
 ]
@@ -102,7 +102,11 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4),
+    layout.Columns(
+        border_focus_stack=["#d75f5f", "#8f3d3d"], 
+        border_width=4,
+        margin=[0, 10, 10, 10],
+        ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -142,10 +146,14 @@ screens = [
         wallpaper_mode='stretch',
         top=bar.Bar(
             [
-                widget.CurrentLayout(),
+                widget.CurrentLayout(
+                    foreground='#fff',
+                    ),
                 widget.GroupBox(
                     highlight_method='line',
                     highlight_color='#00000000',
+                    this_current_screen_border=Colors[6],
+                    inactive=Colors[3],
                     ),
                 widget.Prompt(),
                 widget.Spacer(),
@@ -193,6 +201,7 @@ screens = [
             24,
             background='#00000000',
             opacity=1,
+            margin=[10, 10, 10, 10],
             # border_width=[6, 2, 6, 2],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
