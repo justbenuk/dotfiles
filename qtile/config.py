@@ -70,7 +70,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # Launch Applications
-    Key([mod], "r", lazy.spawn('rofi -show'), desc="Spawn a command using a prompt widget"),
+    Key([mod], "r", lazy.spawn('rofi -show drun'), desc="Spawn a command using a prompt widget"),
     Key([mod], "b", lazy.spawn('google-chrome-stable'), desc="Browser"),
     Key([mod], "o", lazy.spawn('libreoffice'), desc="Open Office"),
 ]
