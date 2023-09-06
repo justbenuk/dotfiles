@@ -73,6 +73,7 @@ keys = [
     Key([mod], "r", lazy.spawn('rofi -show drun'), desc="Spawn a command using a prompt widget"),
     Key([mod], "b", lazy.spawn('google-chrome-stable'), desc="Browser"),
     Key([mod], "o", lazy.spawn('libreoffice'), desc="Open Office"),
+    Key([mod], "f", lazy.spawn('dolphin'), desc="Open Files"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -91,7 +92,7 @@ for i in groups:
             Key(
                 [mod, "shift"],
                 i.name,
-                lazy.window.togroup(i.name, switch_group=True),
+                lazy.window.togroup(i.name, switch_group=False),
                 desc="Switch to & move focused window to group {}".format(i.name),
             ),
             # Or, use below if you prefer not to switch to that group.
@@ -167,7 +168,7 @@ screens = [
                     ),
                 widget.CPU(
                     format='{load_percent}%',
-                    background=Colors[3],
+                    foreground='#fff',
                     ),
                 widget.TextBox(
                     text='\uf50a',
@@ -175,23 +176,31 @@ screens = [
                     ),
                 widget.Memory(
                     measure_mem='G',
-                    background=Colors[4],
+                    foreground='#fff',
+                    ),
+                    widget.TextBox(
+                    text='\uf56a',
+                    background=Colors[5],
                     ),
                 widget.Battery(
                     format='{char} {percent:2.0%}',
-                    background=Colors[5],
+                    foreground='#fff',
                     ),
                 widget.TextBox(
                     text='\uf56a',
                     background=Colors[6],
                     ),
                 widget.Volume(
-                    background=Colors[6],
+                    foreground='#fff',
                     ),
                 widget.Systray(),
+                widget.TextBox(
+                    text='\uf56a',
+                    background=Colors[7],
+                    ),
                 widget.Clock(
                     format="%a %I:%M %p",
-                    background=Colors[7]
+                    foreground='#fff',
                     ),
                 widget.QuickExit(
                     background=Colors[8],
@@ -199,9 +208,8 @@ screens = [
                     ),
             ],
             24,
-            background='#00000000',
-            opacity=1,
-            margin=[10, 10, 10, 10],
+            background=Colors[0],
+            margin=[0, 0, 10, 0],
             # border_width=[6, 2, 6, 2],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         ),
