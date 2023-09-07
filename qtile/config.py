@@ -108,15 +108,36 @@ layouts = [
         border_width=4,
         margin=[0, 10, 10, 10],
         ),
-    layout.Max(),
+    layout.Max(
+        border_focus_stack=["#d75f5f", "#8f3d3d"], 
+        border_width=4,
+        margin=[0, 10, 10, 10],
+        ),
     # Try more layouts by unleashing below layouts.
-    # layout.Stack(num_stacks=2),
+     layout.Stack(
+        num_stacks=2,
+        border_focus_stack=["#d75f5f", "#8f3d3d"], 
+        border_width=4,
+        margin=[0, 10, 10, 10],
+        ),
     # layout.Bsp(),
-    # layout.Matrix(),
-    # layout.MonadTall(),
+     layout.Matrix(
+        border_focus_stack=["#d75f5f", "#8f3d3d"], 
+        border_width=4,
+        margin=[0, 10, 10, 10],
+         ),
+     layout.MonadTall(
+        border_focus_stack=["#d75f5f", "#8f3d3d"], 
+        border_width=4,
+        margin=[0, 10, 10, 10],
+         ),
     # layout.MonadWide(),
     # layout.RatioTile(),
-    # layout.Tile(),
+     layout.Tile(
+        border_focus_stack=["#d75f5f", "#8f3d3d"], 
+        border_width=4,
+        margin=[0, 10, 10, 10],
+         ),
     # layout.TreeTab(),
     # layout.VerticalTile(),
     # layout.Zoomy(),
@@ -146,7 +167,7 @@ widget_defaults = dict(
     font="Ubuntu Bold",
     fontsize=12,
     foreground=Colors[0],
-    padding=10,
+    padding=8,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -156,8 +177,9 @@ screens = [
         wallpaper_mode='stretch',
         top=bar.Bar(
             [
-                widget.CurrentLayout(
+                widget.CurrentLayoutIcon(
                     foreground='#fff',
+                    fontsize=8,
                     ),
                 widget.GroupBox(
                     highlight_method='line',
