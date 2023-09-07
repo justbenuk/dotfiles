@@ -7,6 +7,7 @@ DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 # ========================================
 echo "Install required files after install"
 sudo pacman -Syyu kitty nodejs npm neovim lazygit make qtile rofi picom
+pamac install rofi-power-menu
 echo "Completed Install"
 
 
@@ -14,7 +15,7 @@ echo "Completed Install"
 # install required qtile extensionsmand pip files
 # ========================================
 echo "Install required files for qtile"
-pip install psutil --break-system-packages
+pip install psutil pyxdg --break-system-packages
 echo "Completed Install"
 
 #==========================================

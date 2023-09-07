@@ -67,7 +67,7 @@ keys = [
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "control"], "q", lazy.spawn('rofi -show p -modi p:rofi-power-menu'), desc="Shutdown Qtile"),
 
     # Launch Applications
     Key([mod], "r", lazy.spawn('rofi -show drun'), desc="Spawn a command using a prompt widget"),
@@ -202,9 +202,9 @@ screens = [
                     format="%a %I:%M %p",
                     foreground='#fff',
                     ),
-                widget.QuickExit(
+                widget.LaunchBar(
                     background=Colors[8],
-                    default_text='X'
+                    progs=[('X', 'rofi -show p -modi p:rofi-power-menu')],
                     ),
             ],
             24,
