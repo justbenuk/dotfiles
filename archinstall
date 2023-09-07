@@ -7,7 +7,7 @@ DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 # ========================================
 echo "Install required files after install"
 sudo pacman -Syyu kitty nodejs npm neovim lazygit make qtile rofi picom
-pamac install rofi-power-menu
+pamac install rofi-power-menu ttf-font-awesome
 echo "Completed Install"
 
 

@@ -133,6 +133,15 @@ Colors  = [
     ["#9aedfe", "#9aedfe"]  # light blue
     ]
 
+icons = {
+        "volume": "&#xf028;",   # fa-bullhorn
+        "cpu": "&#xf2db;",       # fa-microchip  
+        "download": "&#xf019;",       # fa-microchip  
+        "battery": "&#xf241;",       # fa-microchip  
+        "clock": "&#xf017;",       # fa-microchip  
+        "power": "&#xf011;",       # fa-microchip  
+        }
+
 widget_defaults = dict(
     font="Ubuntu Bold",
     fontsize=12,
@@ -163,40 +172,52 @@ screens = [
                     ),
                 widget.Spacer(),
                 widget.TextBox(
-                    text='CPU',
+                    text=icons["cpu"],
                     background=Colors[3],
+                    font="Font Awesome",
+                    fontsize=18,
                     ),
                 widget.CPU(
                     format='{load_percent}%',
                     foreground='#fff',
                     ),
                 widget.TextBox(
-                    text='\uf50a',
+                    text=icons["download"],
                     background=Colors[4],
+                    font="Font Awesome",
+                    fontsize=18,
                     ),
                 widget.Memory(
                     measure_mem='G',
                     foreground='#fff',
                     ),
                     widget.TextBox(
-                    text='\uf56a',
+                    text=icons["battery"],
                     background=Colors[5],
+                    font="Font Awesome",
+                    fontsize=18,
+
                     ),
                 widget.Battery(
                     format='{char} {percent:2.0%}',
                     foreground='#fff',
                     ),
                 widget.TextBox(
-                    text='\uf56a',
+                    text=icons["volume"],
                     background=Colors[6],
+                    font="Font Awesome",
+                    fontsize=18,
                     ),
                 widget.Volume(
                     foreground='#fff',
                     ),
                 widget.Systray(),
                 widget.TextBox(
-                    text='\uf56a',
+                    text=icons["clock"],
                     background=Colors[7],
+                    font="Font Awesome",
+                    fontsize=14,
+
                     ),
                 widget.Clock(
                     format="%a %I:%M %p",
@@ -204,7 +225,8 @@ screens = [
                     ),
                 widget.LaunchBar(
                     background=Colors[8],
-                    progs=[('X', 'rofi -show p -modi p:rofi-power-menu')],
+                    progs=[("&#xf011;", 'rofi -show p -modi p:rofi-power-menu')],
+                    fontsize=16
                     ),
             ],
             24,
