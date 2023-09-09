@@ -233,7 +233,6 @@ screens = [
                 widget.Volume(
                     foreground='#fff',
                     ),
-                widget.Systray(),
                 widget.TextBox(
                     text=icons["clock"],
                     background=Colors[7],
@@ -250,6 +249,7 @@ screens = [
                     progs=[("&#xf011;", 'rofi -show p -modi p:rofi-power-menu')],
                     fontsize=16
                     ),
+                widget.Systray(),
             ],
             24,
             background=Colors[0],
