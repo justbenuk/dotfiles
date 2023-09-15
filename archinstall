@@ -6,16 +6,7 @@ DOTFILES=$(cd $(dirname "${BASH_SOURCE[0]}") && pwd)
 # install required applications
 # ========================================
 echo "Install required files after install"
-sudo pacman -Syyu kitty nodejs npm neovim lazygit make qtile rofi picom
-pamac install rofi-power-menu ttf-font-awesome
-echo "Completed Install"
-
-
-#==========================================
-# install required qtile extensionsmand pip files
-# ========================================
-echo "Install required files for qtile"
-pip install psutil pyxdg --break-system-packages
+sudo pacman -Syyu kitty nodejs npm neovim lazygit make 
 echo "Completed Install"
 
 #==========================================
