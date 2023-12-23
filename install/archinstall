@@ -13,9 +13,9 @@ echo "Completed Install"
 # Set up Kitty config files
 #  ========================================
 echo "Setup and Move Kitty Config"
-rm -rf $HOME/.config/kitty
+rm -rf $HOME/.config/kitty/
 #add the new config
-ln -s $DOTFILES/kitty $HOME/.config/kitty
+ln -s $DOTFILES/kitty/ $HOME/.config/kitty/
 
 #  ========================================
 # Set up nvim and create symlink
@@ -23,7 +23,7 @@ ln -s $DOTFILES/kitty $HOME/.config/kitty
 echo "Setting Up Lunar Vim config files"
 rm -r $HOME/.config/lvim 
 #add the new config
-ln -s $DOTFILES/lvim $HOME/.config/lvim
+ln -s $DOTFILES/lvim/ $HOME/.config/lvim/
 
 #  ========================================
 # Set up qtile and create symlink
