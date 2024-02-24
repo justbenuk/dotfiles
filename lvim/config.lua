@@ -9,3 +9,6 @@ lvim.plugins = {
 }
 
 lvim.colorscheme = "dracula"
+lvim.transparent_window = true
+
+
