@@ -4,11 +4,10 @@
 -- Discord: https://discord.com/invite/Xb9B4Ny
 --
 lvim.plugins = {
-	"Mofiqul/dracula.nvim",
-  "jwalton512/vim-blade"
+  "joshdick/onedark.vim"
 }
 
-lvim.colorscheme = "dracula"
+lvim.colorscheme = "onedark"
 lvim.transparent_window = true
 
 
