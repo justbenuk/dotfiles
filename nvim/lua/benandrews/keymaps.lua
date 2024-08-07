@@ -6,6 +6,9 @@ vim.g.maplocalleader = ' '
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true })
 
+-- save and close
+vim.keymap.set('n', '<Leader>w', '<Esc>:w<CR>')
+
 -- Reselect visual selection after indenting.
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
