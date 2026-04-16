@@ -1,0 +1,36 @@
+# Web-dev and Neovim focused Ghostty setup.
+
+theme = TokyoNight Storm
+font-family = Source Code Pro
+font-size = 10
+
+# Keep the viewport clean without wasting too much space around Neovim.
+window-padding-x = 6
+window-padding-y = 6
+window-padding-balance = true
+window-padding-color = extend
+
+cursor-style = block
+cursor-style-blink = false
+cursor-click-to-move = true
+mouse-hide-while-typing = true
+
+copy-on-select = clipboard
+scrollback-limit = 50000000
+scrollbar = never
+
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,ssh-env,ssh-terminfo,path
+
+window-inherit-working-directory = true
+tab-inherit-working-directory = true
+split-inherit-working-directory = true
+window-inherit-font-size = true
+
+gtk-titlebar-style = tabs
+gtk-titlebar-hide-when-maximized = true
+gtk-toolbar-style = flat
+window-subtitle = working-directory
+
+# Keep split panes readable while still showing focus clearly.
+unfocused-split-opacity = 0.97
